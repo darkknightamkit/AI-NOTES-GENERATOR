@@ -9,16 +9,16 @@ import cors from "cors";
 import userRouter from "./routes/user.route.js";
 import notesRouter from "./routes/generate.route.js";
 import pdfRouter from "./routes/pdf.route.js";
-import creditRouter from "./routes/credits.route.js";
-import { stripeWebhook } from "./controllers/credits.controller.js";
+// import creditRouter from "./routes/credits.route.js";
+// import { stripeWebhook } from "./controllers/credits.controller.js";
 
 const app = express();
 
-app.post(
-  "/api/v1/credit/webhook",
-  express.raw({ type: "application/json" }),
-  stripeWebhook,
-);
+// app.post(
+//   "/api/v1/credit/webhook",
+//   express.raw({ type: "application/json" }),
+//   stripeWebhook,
+// );
 
 //middlewares
 app.use(
@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 app.get("/", (_, res) => {
   return res.json({
@@ -45,7 +45,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/notes", notesRouter);
 app.use("/api/v1/pdf", pdfRouter);
-app.use("/api/v1/credit", creditRouter);
+// app.use("/api/v1/credit", creditRouter);
 
 app.listen(port, () => {
   console.log(`App Listening on Port ${port} ✅`);

@@ -23,7 +23,7 @@ app.post(
 //middlewares
 app.use(
   cors({
-    origin: "https://ai-notes-generator-client.onrender.com",
+    origin: "https://ai-notes-generator-1-knax.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   }),
